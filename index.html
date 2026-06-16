@@ -103,7 +103,7 @@
             <a href="#" @click.prevent="switchTab('home')" class="flex items-center gap-3 group">
                 <div class="relative w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-md border border-slate-100 overflow-hidden transition-transform duration-300 group-hover:scale-105">
                     <!-- FALLBACK DA SUA LOGO SE O ARQUIVO ESTIVER NA PASTA DO GITHUB PAGES -->
-                    <img src="IMG_0589.PNG" alt="Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="w-full h-full object-contain p-1">
+                    <img src="assets/img/logo.PNG" alt="Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="w-full h-full object-contain p-1">
                     
                     <!-- RECRIAÇÃO VETORIAL DA LOGO CASO A IMAGEM NÃO CARREGUE DE IMEDIATO -->
                     <div class="hidden absolute inset-0 flex-col items-center justify-center p-1 bg-white">
@@ -764,7 +764,7 @@
             <div class="space-y-4 md:col-span-1.5">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md border border-slate-100 overflow-hidden">
-                        <img src="IMG_0589.PNG" alt="Logo" onerror="this.style.display='none';" class="w-full h-full object-contain p-1">
+                        <img src="assets/img/logo.PNG" alt="Logo" onerror="this.style.display='none';" class="w-full h-full object-contain p-1">
                     </div>
                     <div class="flex flex-col">
                         <span class="font-extrabold text-white text-sm sm:text-base leading-tight tracking-tight">PESCADORES DE ALMAS</span>
@@ -874,7 +874,7 @@
 
                 // Copiar Chave PIX / CNPJ
                 copyPix() {
-                    const cnpjValue = "46.366.371/0001-92";
+                    const cnpjValue = "46366371000192";
 
                     // Método robusto para cópia compatível com Iframe e dispositivos móveis
                     const tempInput = document.createElement("textarea");
