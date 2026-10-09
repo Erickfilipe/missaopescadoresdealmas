@@ -42,9 +42,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    <!-- Chart.js para a Área de Transparência -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <!-- Alpine.js para Estado e Interatividade Simples e Rápida -->
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
@@ -79,7 +76,8 @@
 </head>
 <body class="bg-slate-50 text-slate-800 gradient-bg" x-data="ongApp()">
 
-    <!-- SISTEMA DE NOTIFICAÇÃO (TOAST) - Sem usar alert() nativo -->
+    <!-- -->
+    <!-- SISTEMA DE NOTIFICAÇÃO (TOAST) -->
     <div x-show="toast.show" 
          x-transition:enter="transition ease-out duration-300"
          x-transition:enter-start="opacity-0 translate-y-2 sm:translate-y-0 sm:translate-x-2"
@@ -96,21 +94,19 @@
         </div>
     </div>
 
+    <!-- -->
     <!-- HEADER & NAVBAR (Glassmorphism) -->
     <header class="fixed top-0 left-0 w-full z-40 glass border-b border-slate-200/50 transition-all duration-300" id="main-header">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- LOGO / BRANDING -->
             <a href="#" @click.prevent="switchTab('home')" class="flex items-center gap-3 group">
                 <div class="relative w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-md border border-slate-100 overflow-hidden transition-transform duration-300 group-hover:scale-105">
-                    <!-- FALLBACK DA SUA LOGO SE O ARQUIVO ESTIVER NA PASTA DO GITHUB PAGES -->
-                    <img src="assets/img/logo.PNG" alt="Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="w-full h-full object-contain p-1">
+                    <img src="IMG_0589.PNG" alt="Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="w-full h-full object-contain p-1">
                     
-                    <!-- RECRIAÇÃO VETORIAL DA LOGO CASO A IMAGEM NÃO CARREGUE DE IMEDIATO -->
                     <div class="hidden absolute inset-0 flex-col items-center justify-center p-1 bg-white">
                         <svg viewBox="0 0 100 100" class="w-8 h-8">
                             <circle cx="50" cy="50" r="35" fill="none" stroke="#22c55e" stroke-width="4" />
                             <circle cx="50" cy="50" r="30" fill="#364395" opacity="0.1" />
-                            <!-- Cross -->
                             <path d="M 50 15 L 50 85 M 30 35 L 70 35" stroke="#ef4444" stroke-width="8" stroke-linecap="round"/>
                         </svg>
                     </div>
@@ -132,7 +128,6 @@
                 <a href="#como-ajudar" @click="switchTab('home')" class="hover:text-brand-blue transition-colors">Como Ajudar</a>
                 <a href="#contato" @click="switchTab('home')" class="hover:text-brand-blue transition-colors">Contato</a>
                 
-                <!-- Botão Transparência -->
                 <button @click="switchTab('transparencia')" 
                         class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-md flex items-center gap-2 border"
                         :class="activeTab === 'transparencia' ? 'bg-brand-blue text-white border-brand-blue shadow-brand-blue/20' : 'bg-white text-brand-blue border-brand-blue/20 hover:bg-slate-50'">
@@ -173,20 +168,19 @@
     <!-- CONTENT WRAPPER -->
     <main class="pt-20">
 
+        <!-- -->
         <!-- ==============================================
              ABA: HOME (CONTEÚDO PRINCIPAL DA ONG)
              ============================================== -->
         <div x-show="activeTab === 'home'" x-transition:enter="transition ease-out duration-500" class="space-y-24 pb-20">
             
-            <!-- HERO SECTION (IMPACTANTE & EMOCIONANTE) -->
+            <!-- HERO SECTION -->
             <section id="inicio" class="relative min-h-[85vh] flex items-center justify-center py-16 overflow-hidden bg-slate-900 text-white">
-                <!-- Background pattern / Video placeholder/ Curated premium image -->
                 <div class="absolute inset-0 opacity-25">
                     <img src="assets/img/capa.jpg" class="w-full h-full object-cover filter grayscale contrast-125" alt="Trabalho social">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent"></div>
                 </div>
                 
-                <!-- Circulos decorativos brilhantes -->
                 <div class="absolute top-1/4 left-10 w-96 h-96 bg-brand-blue/30 rounded-full blur-3xl animate-pulse"></div>
                 <div class="absolute bottom-1/4 right-10 w-96 h-96 bg-brand-red/10 rounded-full blur-3xl"></div>
 
@@ -214,7 +208,6 @@
                         </a>
                     </div>
                     
-                    <!-- CNPJ display -->
                     <div class="pt-6 text-slate-400 text-xs sm:text-sm font-mono flex items-center justify-center gap-2">
                         <span>CNPJ: 46.366.371/0001-92</span>
                         <button @click="copyPix()" class="hover:text-white transition-colors p-1" title="Copiar CNPJ">
@@ -223,7 +216,6 @@
                     </div>
                 </div>
 
-                <!-- Wave Divider inferior -->
                 <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
                     <svg class="relative block w-full h-[60px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
                         <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,8.75,53.05,17,80.5,25.43,153.75,47.92,233.72,67.24,321.39,56.44Z" fill="#f8fafc"></path>
@@ -231,7 +223,7 @@
                 </div>
             </section>
 
-            <!-- COUNTER / SEÇÃO DE IMPACTO (Animação GSAP no carregamento) -->
+            <!-- COUNTER / SEÇÃO DE IMPACTO -->
             <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 bg-white p-8 rounded-3xl shadow-xl border border-slate-100">
                     <div class="text-center space-y-2 border-r border-slate-100 last:border-none">
@@ -261,19 +253,16 @@
                 </div>
             </section>
 
+            <!-- -->
             <!-- SEÇÃO: QUEM SOMOS -->
             <section id="quem-somos" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid lg:grid-cols-12 gap-12 items-center">
-                    <!-- Esquerda: Imagem e Elementos Visuais -->
                     <div class="lg:col-span-5 relative flex justify-center animate-trigger">
                         <div class="relative w-full max-w-[400px]">
-                            <!-- Borda decorativa azul -->
                             <div class="absolute -top-4 -left-4 w-full h-full border-4 border-brand-blue rounded-3xl"></div>
-                            <!-- Imagem representativa de apoio e cuidado -->
                             <div class="relative aspect-square overflow-hidden rounded-3xl shadow-2xl bg-slate-800">
                                 <img src="assets/img/acao3.jpg" alt="Crianças sorrindo" class="w-full h-full object-cover">
                             </div>
-                            <!-- Card flutuante IDE -->
                             <div class="absolute -bottom-6 -right-6 bg-brand-green text-white p-6 rounded-2xl shadow-xl max-w-[200px] border border-white">
                                 <i class="fa-solid fa-person-walking-arrow-right text-3xl mb-2"></i>
                                 <h4 class="font-bold text-sm">Ide por todo o mundo</h4>
@@ -282,7 +271,6 @@
                         </div>
                     </div>
 
-                    <!-- Direita: Informações da ONG -->
                     <div class="lg:col-span-7 space-y-6">
                         <div class="space-y-2">
                             <span class="text-brand-red text-sm font-bold uppercase tracking-widest block">Sobre Nós</span>
@@ -297,7 +285,6 @@
                             Nosso trabalho é amplo, visando a dignidade humana de forma integral: alimentamos o faminto em nossas ações de rua, oferecemos saúde preventiva através de atendimentos fisioterapêuticos e consultas odontológicas gratuitas, e criamos oportunidades para os jovens nas quadras com nossa escolinha de futebol social.
                         </p>
 
-                        <!-- Missão, Visão e Valores Grid -->
                         <div class="grid sm:grid-cols-3 gap-6 pt-4">
                             <div class="space-y-2 p-4 bg-white rounded-xl border border-slate-100 hover:shadow-md transition-shadow">
                                 <div class="w-10 h-10 rounded-lg bg-brand-blue/10 flex items-center justify-center text-brand-blue">
@@ -325,7 +312,7 @@
                 </div>
             </section>
 
-            <!-- SEÇÃO: PROJETOS / GALERIA DE ATIVIDADES (Com Filtros Interativos) -->
+            <!-- SEÇÃO: PROJETOS -->
             <section id="projetos" class="bg-slate-100/60 py-20 border-y border-slate-200/50">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
                     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -335,7 +322,6 @@
                             <p class="text-slate-500 max-w-xl text-sm sm:text-base">Nossos projetos contínuos e datas especiais de grande mobilização comunitária.</p>
                         </div>
                         
-                        <!-- Filtros (AlpineJS) -->
                         <div class="flex flex-wrap gap-2">
                             <button @click="selectedProjectCategory = 'todos'" 
                                     class="px-5 py-2.5 rounded-full text-xs font-semibold transition-all"
@@ -355,10 +341,8 @@
                         </div>
                     </div>
 
-                    <!-- Grid de Projetos -->
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         
-                        <!-- 1. Escolinha de Futebol -->
                         <div x-show="selectedProjectCategory === 'todos' || selectedProjectCategory === 'continuos'"
                              x-transition:enter="transition ease-out duration-300"
                              class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
@@ -380,7 +364,6 @@
                             </div>
                         </div>
 
-                        <!-- 2. Fisioterapia -->
                         <div x-show="selectedProjectCategory === 'todos' || selectedProjectCategory === 'continuos'"
                              x-transition:enter="transition ease-out duration-300"
                              class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
@@ -402,7 +385,6 @@
                             </div>
                         </div>
 
-                        <!-- 3. Ações Sociais de Rua -->
                         <div x-show="selectedProjectCategory === 'todos' || selectedProjectCategory === 'continuos'"
                              x-transition:enter="transition ease-out duration-300"
                              class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
@@ -424,7 +406,6 @@
                             </div>
                         </div>
 
-                        <!-- 4. Natal Solidário -->
                         <div x-show="selectedProjectCategory === 'todos' || selectedProjectCategory === 'especiais'"
                              x-transition:enter="transition ease-out duration-300"
                              class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
@@ -446,30 +427,27 @@
                             </div>
                         </div>
 
-                        <!-- 5. Capoeira Solidária (Alterado conforme pedido) -->
-                        <div x-show="selectedProjectCategory === 'todos' || selectedProjectCategory === 'especiais'"
+                        <div x-show="selectedProjectCategory === 'todos' || selectedProjectCategory === 'continuos'"
                              x-transition:enter="transition ease-out duration-300"
                              class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                             <div class="relative h-56 bg-slate-800">
-                                <img src="assets/img/capoeira.jpg" alt="Capoeira" class="w-full h-full object-cover">
-                                <span class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">Cultura & Movimento</span>
+                                <img src="assets/img/capoeira.jpg" alt="Roda de Capoeira" class="w-full h-full object-cover">
+                                <span class="absolute top-4 left-4 bg-brand-blue text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">Esporte & Cultura</span>
                             </div>
                             <div class="p-6 space-y-4">
                                 <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
-                                    <i class="fa-solid fa-drum text-brand-red"></i> Capoeira Solidária
+                                    <i class="fa-solid fa-person-running text-brand-blue"></i> Aulas de Capoeira
                                 </h3>
-                                <!-- Bloco "e muito mais" foi removido daqui a pedido -->
                                 <p class="text-slate-500 text-sm leading-relaxed">
-                                    Momentos de capoeira, convivência, cultura e alegria com atividades para crianças, jovens e famílias, promovendo disciplina, movimento e inclusão.
+                                    Resgatamos a cultura, a disciplina física e mental, além do respeito mútuo através da arte da capoeira, promovendo a integração social.
                                 </p>
-                                <div class="pt-4 border-t border-slate-100 flex justify-between items-center text-xs text-brand-red font-semibold">
-                                    <span><i class="fa-solid fa-people-group"></i> Cultura e Comunidade</span>
-                                    <span>Março/Abril</span>
+                                <div class="pt-4 border-t border-slate-100 flex justify-between items-center text-xs text-brand-blue font-semibold">
+                                    <span><i class="fa-solid fa-drum"></i> Movimento e Vida</span>
+                                    <span>Semanal</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- 6. Dia das Crianças Solidário -->
                         <div x-show="selectedProjectCategory === 'todos' || selectedProjectCategory === 'especiais'"
                              x-transition:enter="transition ease-out duration-300"
                              class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
@@ -491,57 +469,27 @@
                             </div>
                         </div>
 
-                        <!-- 7. Assistência e Cidadania (NOVO CARD) -->
-                        <div x-show="selectedProjectCategory === 'todos' || selectedProjectCategory === 'continuos'"
+                        <div x-show="selectedProjectCategory === 'todos'"
                              x-transition:enter="transition ease-out duration-300"
-                             class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                            <div class="relative h-56 bg-slate-800">
-                                <img src="assets/img/acao4.jpg" alt="Emissão de documentos e cidadania" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/364395/ffffff?text=Cidadania';">
-                                <span class="absolute top-4 left-4 bg-brand-blue text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">Orientação</span>
+                             class="project-card bg-gradient-to-br from-brand-blue to-brand-blueDark rounded-2xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center justify-center text-center p-8 min-h-[350px]">
+                            
+                            <div class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mb-6">
+                                <i class="fa-solid fa-plus text-4xl text-white"></i>
                             </div>
-                            <div class="p-6 space-y-4">
-                                <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
-                                    <i class="fa-solid fa-id-card text-brand-blue"></i> Apoio à Cidadania
-                                </h3>
-                                <p class="text-slate-500 text-sm leading-relaxed">
-                                    Auxílio no cadastramento em programas e projetos sociais do governo, além de suporte, logística e orientação ativa para a emissão de documentos fundamentais.
-                                </p>
-                                <div class="pt-4 border-t border-slate-100 flex justify-between items-center text-xs text-brand-blue font-semibold">
-                                    <span><i class="fa-solid fa-file-signature"></i> Direitos Garantidos</span>
-                                    <span>Contínuo</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- QUADRO NOVO: OUTRAS INICIATIVAS ("E muito mais") -->
-                    <div class="mt-16 bg-gradient-to-r from-brand-blue to-brand-blueDark rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 border border-white/10">
-                        <!-- Ícone de fundo decorativo -->
-                        <div class="absolute -right-10 -top-10 text-white/5 pointer-events-none">
-                            <i class="fa-solid fa-hands-holding-circle text-[15rem]"></i>
-                        </div>
-                        
-                        <div class="relative z-10 max-w-3xl space-y-5">
-                            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/20 rounded-full text-xs font-bold uppercase tracking-widest backdrop-blur-sm border border-white/30">
-                                <i class="fa-solid fa-plus text-brand-green"></i> Muito Além
-                            </div>
-                            <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Nossa atuação não para por aqui</h3>
-                            <p class="text-slate-200 text-base sm:text-lg leading-relaxed font-light">
-                                Além dos projetos em destaque, a Missão mantém diversas outras iniciativas essenciais de ajuda contínua. Isso inclui a <strong class="text-white">distribuição emergencial de roupas, campanhas do agasalho, auxílio jurídico básico e amparo familiar</strong> direto para famílias em situações críticas de risco. Nosso braço de apoio se estende onde a necessidade chama.
+                            <h3 class="text-2xl font-black text-white mb-3">E muito mais...</h3>
+                            <p class="text-slate-200 text-sm leading-relaxed mb-6">
+                                Nosso trabalho não para por aqui. Além destes projetos, realizamos diversas outras ações de amparo e campanhas pontuais durante todo o ano.
                             </p>
-                        </div>
-                        <div class="relative z-10 whitespace-nowrap shrink-0 mt-4 md:mt-0">
-                            <a href="#como-ajudar" @click="switchTab('home')" class="px-8 py-4 bg-brand-green hover:bg-brand-greenDark text-white font-bold rounded-xl shadow-[0_0_20px_rgba(34,197,94,0.4)] transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
-                                Quero Apoiar <i class="fa-solid fa-heart"></i>
+                            <a href="#contato" class="px-6 py-3 bg-white text-brand-blue text-xs font-bold uppercase tracking-wider rounded-full hover:bg-slate-100 transition-colors shadow-lg">
+                                Fale Conosco
                             </a>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </section>
 
-            
+            <!-- -->
             <!-- GALERIA INSTAGRAM AUTOMÁTICA -->
             <section id="galeria" class="py-20 bg-white">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -559,11 +507,9 @@
                             <i class="fa-brands fa-instagram text-4xl mb-3"></i>
                             <h3 class="font-bold text-xl">Feed do Instagram</h3>
                             <p class="text-slate-200 text-sm mt-2">
-                                <!-- Elfsight Instagram Feed | Missão pescadores --> <script src="https://elfsightcdn.com/platform.js" async></script> <div class="elfsight-app-209069e0-d36c-4d84-9da2-3f0db3719302" data-elfsight-app-lazy></div>
+                                <script src="https://elfsightcdn.com/platform.js" async></script> <div class="elfsight-app-209069e0-d36c-4d84-9da2-3f0db3719302" data-elfsight-app-lazy></div>
                             </p>
                         </div>
-
-                        <div class="elfsight-app-SEU-ID-AQUI" data-elfsight-app-lazy></div>
                     </div>
 
                     <div class="text-center mt-8">
@@ -581,12 +527,10 @@
             <!-- SEÇÃO: COMO AJUDAR / DOAÇÕES (PIX INTERATIVO) -->
             <section id="como-ajudar" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-gradient-to-br from-brand-blue to-brand-blueDark rounded-3xl text-white shadow-2xl overflow-hidden relative">
-                    <!-- Detalhes em círculo no bg -->
                     <div class="absolute -top-12 -right-12 w-64 h-64 bg-white/5 rounded-full"></div>
                     <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-red/10 rounded-full blur-2xl"></div>
 
                     <div class="p-8 sm:p-12 lg:p-16 grid lg:grid-cols-12 gap-12 items-center relative z-10">
-                        <!-- Esquerda do card -->
                         <div class="lg:col-span-7 space-y-6">
                             <span class="text-brand-green font-bold text-sm uppercase tracking-widest flex items-center gap-2">
                                 <span class="w-2 h-2 rounded-full bg-brand-green animate-ping"></span> Sua Ajuda Salva
@@ -609,20 +553,14 @@
                             </ul>
                         </div>
 
-                        <!-- Direita: Card do PIX (DESIGN PREMIUM QR CODE) -->
                         <div class="lg:col-span-5 bg-white text-slate-800 p-6 sm:p-8 rounded-2xl shadow-xl space-y-6 border border-slate-100">
                             <h3 class="text-xl font-bold text-slate-900 text-center flex items-center justify-center gap-2">
                                 <i class="fa-brands fa-pix text-cyan-500"></i> Doação Rápida via PIX
                             </h3>
                             
-                            <!-- Nova estilização do QR Code -->
                             <div class="flex flex-col items-center justify-center p-6 bg-slate-50/50 rounded-2xl border border-slate-100 shadow-inner">
                                 <div class="relative group w-48 h-48 bg-white p-2.5 rounded-2xl shadow-lg border-2 border-brand-green/30 hover:border-brand-green transition-colors duration-300 flex items-center justify-center overflow-hidden">
-                                    
-                                    <!-- Imagem do QR Code (Substitua o src pelo seu qrcode) -->
                                     <img src="assets/img/qrCode.jpeg" alt="QR Code PIX" class="w-full h-full object-cover rounded-xl">
-                                    
-                                    <!-- Efeito de overlay animado (linha verde de scanner) -->
                                     <div class="absolute top-0 left-0 w-full h-1 bg-brand-green shadow-[0_0_15px_#22c55e] animate-[bounce_2.5s_infinite] opacity-60"></div>
                                 </div>
                                 <span class="mt-4 text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-widest bg-white px-4 py-1.5 rounded-full shadow-sm border border-slate-200">
@@ -648,11 +586,9 @@
                 </div>
             </section>
 
-            <!-- SEÇÃO: CONTATO (Formulário + Botões Interativos) -->
+            <!-- SEÇÃO: CONTATO -->
             <section id="contato" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-4xl mx-auto">
-                    
-                    <!-- Lado Esquerdo: Redes e Botões Modernos -->
                     <div class="space-y-8">
                         <div class="space-y-2">
                             <span class="text-brand-red text-sm font-bold uppercase tracking-widest block">Fale Conosco</span>
@@ -662,9 +598,7 @@
                             </p>
                         </div>
 
-                        <!-- Botões Interativos Gigantes de Contato -->
                         <div class="grid sm:grid-cols-2 gap-4">
-                            <!-- Instagram -->
                             <a href="https://www.instagram.com/missao_pescadores_de_almas?igsh=ZHVncWc0eWQ4MDE0&utm_source=qr" 
                                target="_blank" 
                                class="group flex flex-col justify-between p-6 bg-gradient-to-tr from-purple-600 via-pink-600 to-yellow-500 rounded-2xl text-white shadow-lg shadow-pink-500/10 hover:shadow-xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300">
@@ -680,7 +614,6 @@
                                 </div>
                             </a>
 
-                            <!-- WhatsApp -->
                             <a href="https://wa.me/5521983137271" 
                                target="_blank" 
                                class="group flex flex-col justify-between p-6 bg-emerald-600 rounded-2xl text-white shadow-lg shadow-emerald-500/10 hover:shadow-xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300">
@@ -697,7 +630,6 @@
                             </a>
                         </div>
 
-                        <!-- Card Informativo Endereço / CNPJ -->
                         <div class="bg-white border border-slate-100 p-6 rounded-2xl shadow-md space-y-4">
                             <h4 class="font-bold text-slate-800 text-sm sm:text-base flex items-center gap-2">
                                 <i class="fa-solid fa-location-dot text-brand-red"></i> Base de Operações
@@ -707,60 +639,56 @@
                             </p>
                         </div>
                     </div>
-
-                    </section>
-
-        </div>
-
-        <!-- ==============================================
-             ABA: TRANSPARÊNCIA (PÁGINA EM CONSTRUÇÃO)
-             ============================================== -->
-        <div x-show="activeTab === 'transparencia'" x-transition:enter="transition ease-out duration-500" class="space-y-16 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="display: none;">
-            <section class="min-h-[70vh] flex items-center justify-center">
-                <div class="w-full max-w-4xl bg-white/90 backdrop-blur-sm border border-slate-100 rounded-3xl shadow-xl p-8 sm:p-12 text-center space-y-6">
-                    <div class="w-20 h-20 mx-auto rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue">
-                        <i class="fa-solid fa-chart-line text-3xl"></i>
-                    </div>
-                    <div class="space-y-3">
-                        <span class="text-brand-green font-bold text-sm uppercase tracking-widest block">Portal da Transparência</span>
-                        <h1 class="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">Página em construção</h1>
-                        <p class="text-slate-500 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-                            Este espaço seguirá o mesmo estilo do site e será preenchido em breve com as informações, relatórios e documentos oficiais da ONG.
-                        </p>
-                    </div>
-
-                    <div class="grid sm:grid-cols-3 gap-4 pt-4">
-                        <div class="p-5 rounded-2xl border border-slate-100 bg-slate-50">
-                            <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Status</div>
-                            <div class="mt-2 font-bold text-slate-800">Em atualização</div>
-                        </div>
-                        <div class="p-5 rounded-2xl border border-slate-100 bg-slate-50">
-                            <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Conteúdo</div>
-                            <div class="mt-2 font-bold text-slate-800">Serão adicionados depois</div>
-                        </div>
-                        <div class="p-5 rounded-2xl border border-slate-100 bg-slate-50">
-                            <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Visual</div>
-                            <div class="mt-2 font-bold text-slate-800">Mesmo padrão do site</div>
-                        </div>
-                    </div>
-
-                    <div class="pt-2">
-                        <a href="#contato" @click="switchTab('home')" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-blue text-white font-bold shadow-md shadow-brand-blue/20 hover:bg-brand-blueDark transition-colors">
-                            <i class="fa-solid fa-envelope"></i>
-                            Fale conosco
-                        </a>
-                    </div>
                 </div>
             </section>
         </div>
 
+        <!-- -->
+        <!-- ==============================================
+             ABA: TRANSPARÊNCIA (SUBPÁGINA DEDICADA)
+             ============================================== -->
+        <div x-show="activeTab === 'transparencia'" x-transition:enter="transition ease-out duration-500" class="space-y-12 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="display: none;">
+            
+            <!-- Header do Portal da Transparência e Botão Oficial -->
+            <section class="text-center space-y-6 pt-12">
+                <span class="text-brand-green font-bold text-sm uppercase tracking-widest block">Portal da Transparência</span>
+                <h1 class="text-4xl sm:text-5xl font-black text-slate-900 leading-tight">Nosso compromisso com a verdade</h1>
+                
+                <div class="pt-8">
+                    <a href="https://dd-publico.serpro.gov.br/extensions/painel/DiscricionariasInicio.html?qlikTicket=9rM5PvqOeTl1aELK" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-brand-blue to-brand-blueDark text-white font-bold rounded-xl shadow-lg shadow-brand-blue/30 hover:shadow-xl hover:scale-105 transition-all duration-300">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        Confira no Site da Transparência
+                    </a>
+                </div>
+            </section>
+
+            <!-- Tabela Dinâmica Carregada do CSV -->
+            <section class="bg-white rounded-3xl border border-slate-100 shadow-xl overflow-hidden">
+                <div class="p-6 border-b border-slate-100 bg-slate-50 flex items-center gap-3">
+                    <i class="fa-solid fa-table-list text-brand-blue text-xl"></i>
+                    <h3 class="text-xl font-bold text-slate-900">
+                        Dados de Prestação de Contas
+                    </h3>
+                </div>
+                
+                <!-- O Container Abaixo Recebe o HTML Gerado Automaticamente a Partir de planilha.csv -->
+                <div id="csv-table-container" class="overflow-x-auto">
+                    <div class="p-12 text-center text-slate-500 flex flex-col items-center justify-center gap-4">
+                        <i class="fa-solid fa-spinner fa-spin text-3xl text-brand-blue"></i>
+                        <p class="font-medium text-sm">Carregando dados da planilha...</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
     </main>
 
+    <!-- -->
     <!-- FOOTER DA PÁGINA (Completíssimo) -->
     <footer class="bg-slate-900 text-white pt-16 pb-8 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-10">
             
-            <!-- Coluna 1: ONG / Logo / CNPJ -->
             <div class="space-y-4 md:col-span-1.5">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md border border-slate-100 overflow-hidden">
@@ -779,7 +707,6 @@
                 </div>
             </div>
 
-            <!-- Coluna 2: Navegação rápida -->
             <div class="space-y-4">
                 <h4 class="font-bold text-sm uppercase tracking-wider text-slate-100">Atalhos rápidos</h4>
                 <ul class="space-y-2 text-xs sm:text-sm text-slate-400">
@@ -790,18 +717,14 @@
                 </ul>
             </div>
 
-            <!-- Coluna 3: Links de Transparência -->
             <div class="space-y-4">
                 <h4 class="font-bold text-sm uppercase tracking-wider text-slate-100">Compliance & Acesso</h4>
                 <ul class="space-y-2 text-xs sm:text-sm text-slate-400">
                     <li><a href="#" @click.prevent="switchTab('transparencia')" class="hover:text-white transition-colors">Portal da Transparência</a></li>
-                    <li><a href="#" @click.prevent="downloadReport()" class="hover:text-white transition-colors">Relatórios Anuais</a></li>
-                    <li><a href="#" @click.prevent="downloadReport()" class="hover:text-white transition-colors">Estatuto Regimental</a></li>
                     <li><a href="#contato" @click="switchTab('home')" class="hover:text-white transition-colors">Ouvidoria / Contato</a></li>
                 </ul>
             </div>
 
-            <!-- Coluna 4: Redes Sociais oficiais -->
             <div class="space-y-4">
                 <h4 class="font-bold text-sm uppercase tracking-wider text-slate-100">Conecte-se Conosco</h4>
                 <div class="flex gap-3">
@@ -812,12 +735,10 @@
                         <i class="fa-brands fa-whatsapp text-lg"></i>
                     </a>
                 </div>
-                
             </div>
 
         </div>
 
-        <!-- Linha inferior de direitos autorais -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-800 text-center text-[11px] sm:text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p>&copy; 2026 MISSÃO PESCADORES DE ALMAS. Todos os direitos reservados.</p>
             <p class="flex items-center gap-1">
@@ -827,18 +748,19 @@
     </footer>
 
 
+    <!-- -->
     <!-- LOGICA E INTERATIVIDADE JAVASCRIPT -->
     <script>
-        // Inicialização do Alpine.js e estado da aplicação
         function ongApp() {
             return {
-                activeTab: 'home', // 'home' ou 'transparencia'
+                activeTab: 'home', 
                 mobileMenuOpen: false,
                 selectedProjectCategory: 'todos',
                 toast: {
                     show: false,
                     message: ''
                 },
+                csvLoaded: false,
 
                 init() {
                     this.$watch('selectedProjectCategory', () => {
@@ -850,7 +772,6 @@
                     });
                 },
 
-                // Exibe as mensagens amigáveis via Toast Customizado (Sem alerts irritantes)
                 showToast(message) {
                     this.toast.message = message;
                     this.toast.show = true;
@@ -859,59 +780,135 @@
                     }, 4000);
                 },
 
-                // Gerenciamento de abas / telas
                 switchTab(tab) {
                     this.activeTab = tab;
                     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-                    // Se alternar para Transparência, desenhamos ou atualizamos o gráfico
-                    if (tab === 'transparencia') {
-                        this.$nextTick(() => {
-                            initChart();
-                        });
+                    // Se abrir a aba de transparência, tenta carregar o CSV (apenas uma vez)
+                    if (tab === 'transparencia' && !this.csvLoaded) {
+                        this.loadCSVData();
+                        this.csvLoaded = true;
                     }
                 },
 
-                // Copiar Chave PIX / CNPJ
-                copyPix() {
-                    const cnpjValue = "46366371000192";
+                // LÓGICA DE LEITURA E RENDERIZAÇÃO DO ARQUIVO planilha.csv
+                loadCSVData() {
+                    fetch('planilha.csv')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error("Arquivo planilha.csv não encontrado no servidor.");
+                            }
+                            return response.text();
+                        })
+                        .then(text => {
+                            const rows = this.parseCSV(text);
+                            this.renderCSVTable(rows);
+                        })
+                        .catch(error => {
+                            console.error("Erro ao carregar CSV:", error);
+                            document.getElementById('csv-table-container').innerHTML = `
+                                <div class="p-8 text-center text-slate-500 flex flex-col items-center gap-4">
+                                    <div class="w-16 h-16 bg-red-50 text-red-500 rounded-full flex items-center justify-center">
+                                        <i class="fa-solid fa-file-circle-xmark text-3xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-slate-800 text-lg">Tabela indisponível</p>
+                                        <p class="text-sm mt-1">Não foi possível carregar a tabela. Certifique-se de que o arquivo <strong>planilha.csv</strong> foi enviado e está na mesma pasta raiz do site.</p>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                },
 
-                    // Método robusto para cópia compatível com Iframe e dispositivos móveis
+                parseCSV(text) {
+                    // Tenta identificar se o separador é vírgula ou ponto-e-vírgula (comum no Brasil)
+                    const firstLine = text.split('\n')[0];
+                    const delimiter = (firstLine.match(/;/g) || []).length > (firstLine.match(/,/g) || []).length ? ';' : ',';
+                    
+                    const lines = text.split(/\r?\n/);
+                    const result = [];
+                    
+                    for (let line of lines) {
+                        if (!line.trim()) continue;
+                        const row = [];
+                        let current = '';
+                        let inQuotes = false;
+                        
+                        for (let i = 0; i < line.length; i++) {
+                            const char = line[i];
+                            // Escapar aspas
+                            if (char === '"' && line[i+1] === '"') {
+                                current += '"';
+                                i++;
+                            } else if (char === '"') {
+                                inQuotes = !inQuotes;
+                            } else if (char === delimiter && !inQuotes) {
+                                row.push(current.trim());
+                                current = '';
+                            } else {
+                                current += char;
+                            }
+                        }
+                        row.push(current.trim());
+                        result.push(row);
+                    }
+                    return result;
+                },
+
+                renderCSVTable(rows) {
+                    if (rows.length === 0) return;
+                    
+                    let html = '<table class="w-full text-left border-collapse text-sm whitespace-nowrap">';
+                    
+                    rows.forEach((row, index) => {
+                        if (index === 0) {
+                            // Cabeçalho da Tabela
+                            html += '<thead><tr class="bg-slate-800 text-white uppercase tracking-wider font-bold">';
+                            row.forEach(col => {
+                                html += `<th class="p-4 sm:p-5">${col}</th>`;
+                            });
+                            html += '</tr></thead><tbody class="divide-y divide-slate-100 text-slate-600 font-medium">';
+                        } else {
+                            // Linhas de Dados
+                            html += '<tr class="hover:bg-slate-50 transition-colors">';
+                            row.forEach((col, colIndex) => {
+                                // A primeira coluna fica em negrito (normalmente data ou categoria)
+                                if (colIndex === 0) {
+                                     html += `<td class="p-4 sm:p-5 font-bold text-slate-800">${col}</td>`;
+                                } else {
+                                     html += `<td class="p-4 sm:p-5">${col}</td>`;
+                                }
+                            });
+                            html += '</tr>';
+                        }
+                    });
+                    
+                    html += '</tbody></table>';
+                    document.getElementById('csv-table-container').innerHTML = html;
+                },
+
+                copyPix() {
+                    const cnpjValue = "46.366.371/0001-92";
                     const tempInput = document.createElement("textarea");
                     tempInput.value = cnpjValue;
                     document.body.appendChild(tempInput);
                     tempInput.select();
-                    tempInput.setSelectionRange(0, 99999); // Suporte para mobile
-
+                    tempInput.setSelectionRange(0, 99999); 
                     try {
                         document.execCommand("copy");
                         this.showToast("Chave PIX (CNPJ: 46.366.371/0001-92) copiada com sucesso!");
                     } catch (err) {
                         console.error('Falha ao copiar', err);
                     }
-
                     document.body.removeChild(tempInput);
-                },
-
-                // Simular Download de Relatório
-                downloadReport() {
-                    this.showToast("Iniciando o download do documento oficial selecionado.");
-                },
-
-                // Simulação e envio do formulário de contato
-                submitContactForm(event) {
-                    event.target.reset();
-                    this.showToast("Agradecemos seu contato! Responderemos em até 24 horas úteis.");
                 }
             }
         }
 
-        // --- GSAP MOTION DESIGN ANIMATIONS ---
+        // GSAP ANIMATIONS
         document.addEventListener("DOMContentLoaded", function () {
-            // Registrar ScrollTrigger do GSAP
             gsap.registerPlugin(ScrollTrigger);
 
-            // Animação de entrada do Hero Section
             const tlHero = gsap.timeline();
             tlHero.from(".hero-title", {
                 y: 50,
@@ -932,11 +929,9 @@
                 ease: "power3.out"
             }, "-=0.4");
 
-            // Animação dos Contadores Numéricos (Ao entrar na tela de scroll)
             const counters = document.querySelectorAll('.counter');
             counters.forEach(counter => {
                 const target = parseInt(counter.getAttribute('data-target'), 10);
-
                 ScrollTrigger.create({
                     trigger: counter,
                     start: "top 90%",
@@ -955,7 +950,6 @@
                 });
             });
 
-            // Animação dos Cards de Projetos na Galeria
             gsap.utils.toArray(".project-card").forEach((card) => {
                 gsap.fromTo(card,
                     {
@@ -977,63 +971,6 @@
                 );
             });
         });
-
-        // --- CHART.JS CONFIGURATION (Portal de Transparência) ---
-        let transparencyChartInstance = null;
-
-        function initChart() {
-            const ctx = document.getElementById('transparencyChart');
-            if (!ctx) return;
-
-            // Se o gráfico já estiver ativo, destruímos para recriá-lo de forma fluida
-            if (transparencyChartInstance) {
-                transparencyChartInstance.destroy();
-            }
-
-            transparencyChartInstance = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: [
-                        'Ações Sociais & Alimentação', 
-                        'Fisioterapia & Saúde', 
-                        'Escolinha de Futebol & Lazer', 
-                        'Apoio Familiar & Logística', 
-                        'Custos Administrativos'
-                    ],
-                    datasets: [{
-                        data: [40, 20, 20, 15, 5],
-                        backgroundColor: [
-                            '#364395', // Azul Royal
-                            '#ef4444', // Vermelho IDE
-                            '#22c55e', // Verde Logo
-                            '#f59e0b', // Amber
-                            '#64748b'  // Slate administrativo
-                        ],
-                        borderWidth: 2,
-                        hoverOffset: 6
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                font: {
-                                    family: "'Inter', sans-serif",
-                                    weight: 600,
-                                    size: 11
-                                },
-                                boxWidth: 12,
-                                padding: 15
-                            }
-                        }
-                    },
-                    cutout: '65%'
-                }
-            });
-        }
     </script>
 </body>
 </html>
