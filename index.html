@@ -76,7 +76,6 @@
 </head>
 <body class="bg-slate-50 text-slate-800 gradient-bg" x-data="ongApp()">
 
-    <!-- -->
     <!-- SISTEMA DE NOTIFICAÇÃO (TOAST) -->
     <div x-show="toast.show" 
          x-transition:enter="transition ease-out duration-300"
@@ -94,7 +93,6 @@
         </div>
     </div>
 
-    <!-- -->
     <!-- HEADER & NAVBAR (Glassmorphism) -->
     <header class="fixed top-0 left-0 w-full z-40 glass border-b border-slate-200/50 transition-all duration-300" id="main-header">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
@@ -168,7 +166,6 @@
     <!-- CONTENT WRAPPER -->
     <main class="pt-20">
 
-        <!-- -->
         <!-- ==============================================
              ABA: HOME (CONTEÚDO PRINCIPAL DA ONG)
              ============================================== -->
@@ -253,7 +250,6 @@
                 </div>
             </section>
 
-            <!-- -->
             <!-- SEÇÃO: QUEM SOMOS -->
             <section id="quem-somos" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid lg:grid-cols-12 gap-12 items-center">
@@ -489,7 +485,6 @@
                 </div>
             </section>
 
-            <!-- -->
             <!-- GALERIA INSTAGRAM AUTOMÁTICA -->
             <section id="galeria" class="py-20 bg-white">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -522,7 +517,6 @@
                     </div>
                 </div>
             </section>
-
 
             <!-- SEÇÃO: COMO AJUDAR / DOAÇÕES (PIX INTERATIVO) -->
             <section id="como-ajudar" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -643,7 +637,6 @@
             </section>
         </div>
 
-        <!-- -->
         <!-- ==============================================
              ABA: TRANSPARÊNCIA (SUBPÁGINA DEDICADA)
              ============================================== -->
@@ -680,11 +673,41 @@
                 </div>
             </section>
 
+            <!-- Gráficos de Transparência (Novas Imagens) -->
+            <section class="mt-16 space-y-8">
+                <div class="text-center space-y-2">
+                    <h3 class="text-2xl font-bold text-slate-900">Indicadores e Gráficos</h3>
+                    <p class="text-slate-500 text-sm">Acompanhamento visual da execução e utilização de recursos.</p>
+                </div>
+                
+                <!-- Grid Responsivo para as Imagens (1 coluna no celular, 2 colunas no desktop) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Gráfico 1 -->
+                    <div class="bg-white rounded-2xl border border-slate-100 shadow-md p-2 overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="assets/img/transparencia1.png" alt="Crescimento da Utilização" class="w-full h-auto rounded-xl object-contain">
+                    </div>
+                    
+                    <!-- Gráfico 2 -->
+                    <div class="bg-white rounded-2xl border border-slate-100 shadow-md p-2 overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="assets/img/transparencia2.png" alt="Status de Execução" class="w-full h-auto rounded-xl object-contain">
+                    </div>
+                    
+                    <!-- Gráfico 3 -->
+                    <div class="bg-white rounded-2xl border border-slate-100 shadow-md p-2 overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="assets/img/transparencia3.png" alt="Utilização por Ministério" class="w-full h-auto rounded-xl object-contain">
+                    </div>
+                    
+                    <!-- Gráfico 4 -->
+                    <div class="bg-white rounded-2xl border border-slate-100 shadow-md p-2 overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="assets/img/transparencia4.png" alt="Status de Aprovação" class="w-full h-auto rounded-xl object-contain">
+                    </div>
+                </div>
+            </section>
+
         </div>
 
     </main>
 
-    <!-- -->
     <!-- FOOTER DA PÁGINA (Completíssimo) -->
     <footer class="bg-slate-900 text-white pt-16 pb-8 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-10">
@@ -748,7 +771,6 @@
     </footer>
 
 
-    <!-- -->
     <!-- LOGICA E INTERATIVIDADE JAVASCRIPT -->
     <script>
         function ongApp() {
